@@ -3,6 +3,7 @@ import TextInput from '../components/UIkit/TextInput';
 import {SelectBox, PrimaryButton} from '../components/UIkit';
 import { useDispatch } from 'react-redux';
 import { saveProduct } from '../reducks/products/operations';
+import ImageArea from '../components/Products/ImageArea';
 
 const ProductEdit = () => {
     const dispatch = useDispatch();
@@ -12,6 +13,7 @@ const ProductEdit = () => {
         [description, setDescription] = useState(""),
         [category, setCategory] = useState(""),
         [gender, setGender] = useState(""),
+        [images, setImages] = useState([]),
         [price, setPrice] = useState("");
 
   // 2. useCallbackでstateをフォームの内容に変更する。        
@@ -44,6 +46,9 @@ const ProductEdit = () => {
     <section>
       <h2 className="u-text__headline u-text-center">商品の登録・編集</h2>
       <div className="c-section-container">
+        <ImageArea images={images} setImages={setImages}>
+
+        </ImageArea>
         <TextInput
           fullWidth={true} label={"商品名"} multiline={false} required={true}
           rows={1} value={name} type={"text"} onChange={inputName}
@@ -66,7 +71,7 @@ const ProductEdit = () => {
         <div className="center">
           <PrimaryButton
             label={"登録する"}
-            onClick={() => dispatch(saveProduct(name, description, category, gender, price))}
+            onClick={() => dispatch(saveProduct(name, description, category, gender, price, images))}
           />
         </div>
       </div>
