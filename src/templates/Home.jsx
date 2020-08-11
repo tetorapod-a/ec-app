@@ -2,6 +2,7 @@ import React from 'react';
 import {getUserId, getUserName} from '../reducks/users/selectors';
 import { useSelector, useDispatch } from 'react-redux';
 import { signOut } from '../reducks/users/operations';
+import {push} from 'connected-react-router';
 
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
       <p>ユーザーID:{uid}</p>
       <p>ユーザー名:{username}</p>
       <button onClick={() => dispatch(signOut())}>Sign Out</button>
+      <button onClick={() => dispatch(push("/product/edit"))}>商品を登録する(管理者用)</button>
     </div>
   );
 };
