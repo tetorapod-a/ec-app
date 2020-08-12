@@ -9,3 +9,5 @@ export const getUserId = createSelector([usersSelector], state => state.uid);
 export const getUserName = createSelector([usersSelector], state => state.username);
 
 export const getIsSignedIn = createSelector([usersSelector], state => state.isSignedIn);
+
+export const getProductsInCart = createSelector([usersSelector], state => state.cart);

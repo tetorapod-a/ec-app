@@ -20,7 +20,6 @@ const ProductEdit = () => {
         db.collection('products').doc(id).get()
           .then(snapshot => {                        //結果を"snapshot"で受け取っている
             const data = snapshot.data();
-            // console.log(data);
             setName(data.name);
             setImages(data.images);
             setGender(data.gender);

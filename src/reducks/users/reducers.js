@@ -10,12 +10,18 @@ export const UsersReducer = (state = initialState.users, action) => {
         ...action.payload
         // initialStateの中身をaction.payloadの内容に上書きする。（スプレッド構文）
       }
-    default:
-      return state
-    
     case Action.SIGN_OUT:
         return {
           ...action.payload
         };
+    case Action.FETCH_PRODUCTS_IN_CART:
+      return {
+        ...state,
+        cart: [...action.payload]
+      };
+    default:
+      return state
+      
+  
   }
 }
