@@ -64,7 +64,7 @@ export const deleteProduct = (id) => {
   return async (dispatch, getState) => {
     productsRef.doc(id).delete()
       .then(() => {                                    // 削除したらstateを更新する
-        const prevProducts = getState().product.list;
+        const prevProducts = getState().products.list;
         const nextProducts = prevProducts.filter(product => product.id !== id)
         dispatch(deleteProductAction(nextProducts))
       })
@@ -129,7 +129,7 @@ export const orderProduct = (productsInCart, amount) => {
             amount: amount,
             created_at: timestamp,
             id: orderRef.id,
-            product: products,
+            products: products,
             shipping_date: shippingDate,
             updated_at: timestamp
           }

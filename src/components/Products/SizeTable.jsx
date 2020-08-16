@@ -21,6 +21,14 @@ const SizeTable = (props) => {
   return (
     <TableContainer>
       <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>サイズ</TableCell>
+            <TableCell>数量</TableCell>
+            <TableCell className={classes.iconCell} />
+            <TableCell className={classes.iconCell} />
+          </TableRow>
+        </TableHead>
         <TableBody>
           {sizes.length > 0 && (
             sizes.map(size => (

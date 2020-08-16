@@ -40,6 +40,10 @@ const useStyles = makeStyles((theme) => ({       // material-uiのテーマを�
   price: {
     color: theme.palette.secondary.main,
     fontSize: 16
+  },
+  icon: {
+    marginRight: 0,
+    marginLeft: 'auto'
   }
 
 }));
@@ -76,7 +80,7 @@ const ProductCard = (props) => {
             ¥{price}
           </Typography>
         </div>
-        <IconButton>
+        <IconButton className={classes.icon}>
           <MoreVertIcon onClick={handleClick}/>
         </IconButton>
         <Menu anchorEl={anchorEl}
